@@ -129,8 +129,8 @@ html {
 }
 
 .profile-photo {
-    width: 400px;          /* controls the size */
-    height: 400px;
+    width: 350px;          /* controls the size */
+    height: 350px;
     border-radius: 50%;
     overflow: hidden;      /* ensures perfect circle */
     border: 3px solid #2c3e50;
