@@ -133,7 +133,7 @@ html {
     height: 350px;
     border-radius: 50%;
     overflow: hidden;      /* ensures perfect circle */
-    border: 3px solid #2c3e50;
+    border: 3px solid #ffffff;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     flex-shrink: 0;        /* prevents it from stretching */
 }
