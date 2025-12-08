@@ -128,22 +128,22 @@ html {
     align-items: center;
 }
 
-
 .profile-photo {
-    width: 140px;
-    height: 140px;
+    width: 150px;          /* controls the size */
+    height: 150px;
     border-radius: 50%;
-    overflow: hidden; /* important */
+    overflow: hidden;      /* ensures perfect circle */
     border: 3px solid #ffffff;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    flex-shrink: 0;        /* prevents it from stretching */
 }
 
 .profile-photo img {
-    width: 100%;
+    width: 100%;           /* force img to fit */
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;     /* crop nicely inside circle */
+    display: block;
 }
-
 
 
 /* Sections */
