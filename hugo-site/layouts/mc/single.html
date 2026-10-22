@@ -1,0 +1,60 @@
+{{- define "main" -}}
+{{- $p := .Params -}}
+<div class="mc">
+  <div class="mc-wrap">
+    <h1 class="mc-pagetitle">{{ .Title }}</h1>
+
+    {{ with $p.about }}
+    <section>
+      {{ range . }}<p>{{ . | markdownify }}</p>{{ end }}
+    </section>
+    {{ end }}
+
+    {{ with $p.interests }}
+    <section>
+      <h2>{{ $p.interests_label | default "Research interests" }}</h2>
+      <ul class="mc-list">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </section>
+    {{ end }}
+
+    {{ with $p.outside_text }}
+    <section class="mc-outside">
+      <h2>{{ $p.outside_label | default "Outside of work" }}</h2>
+      <p>{{ . | markdownify }}</p>
+    </section>
+    {{ end }}
+
+    {{ with $p.cv_download }}
+    <p class="mc-download"><a href="{{ .url | relURL }}">{{ .label }}</a></p>
+    {{ end }}
+
+    {{ range $p.cv_groups }}
+    <section>
+      <h2>{{ .heading }}</h2>
+      {{ range .items }}
+      <div class="mc-entry">
+        <div class="mc-when">{{ .when }}</div>
+        <div>
+          <h3>{{ .title }}</h3>
+          {{ with .where }}<div class="mc-where">{{ . }}</div>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </section>
+    {{ end }}
+
+    {{ with $p.contact }}
+    <section>
+      {{ with .text }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with .links }}
+      <ul class="mc-list">
+        {{ range . }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+      </ul>
+      {{ end }}
+    </section>
+    {{ end }}
+  </div>
+</div>
+{{- end -}}

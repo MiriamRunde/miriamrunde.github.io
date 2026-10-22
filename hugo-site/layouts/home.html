@@ -1,0 +1,91 @@
+{{- define "main" -}}
+{{- $p := .Params -}}
+{{- $l := $p.labels | default dict -}}
+{{- $about := (site.GetPage "/about").Params -}}
+{{- $cv := (site.GetPage "/cv").Params -}}
+{{- $contact := (site.GetPage "/contact").Params -}}
+<div class="mc">
+  <div class="mc-wrap">
+
+    {{ with $p.hero }}
+    <div class="mc-sec mc-hero" id="top-sec">
+      <div>
+        {{ $parts := split .name " " }}
+        <h1>{{ index $parts 0 }}{{ if gt (len $parts) 1 }} <span>{{ delimit (after 1 $parts) " " }}</span>{{ end }}</h1>
+        <div class="mc-role">{{ .role }}{{ with .affiliation }} · <em>{{ . }}</em>{{ end }}</div>
+        <p>{{ .intro }}</p>
+      </div>
+      {{ $img := resources.Get "media/authors/portrait.jpg" }}
+      {{ if $img }}
+        {{ $img = $img.Fill "800x1200 Center q90" }}
+        <img class="mc-photo" src="{{ $img.RelPermalink }}" alt="{{ .name }}" width="400" height="600">
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <section class="mc-sec" id="research">
+      <h2>{{ $l.research | default "Research" }}</h2>
+      {{ range $p.research }}
+      <div class="mc-entry">
+        <div class="mc-when">{{ .when }}</div>
+        <div>
+          <h3>{{ .title }}</h3>
+          {{ with .where }}<div class="mc-where">{{ . }}</div>{{ end }}
+          {{ with .text }}<p>{{ . }}</p>{{ end }}
+          {{ with .links }}<p class="mc-links">{{ range $i, $e := . }}{{ if $i }} &nbsp;·&nbsp; {{ end }}<a href="{{ $e.url }}" target="_blank" rel="noopener">{{ $e.label }}</a>{{ end }}</p>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </section>
+
+    <section class="mc-sec" id="about">
+      <h2>About</h2>
+      {{ range $about.about }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with $about.interests }}
+      <h2 class="mc-sub">{{ $about.interests_label | default "Research interests" }}</h2>
+      <ul class="mc-list">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      {{ end }}
+      {{ with $about.outside_text }}
+      <div class="mc-outside">
+        <h2 class="mc-sub">{{ $about.outside_label | default "Outside of work" }}</h2>
+        <p>{{ . | markdownify }}</p>
+      </div>
+      {{ end }}
+    </section>
+
+    <section class="mc-sec" id="cv">
+      <h2>CV</h2>
+      {{ with $cv.cv_download }}
+      <p class="mc-download"><a href="{{ .url | relURL }}">{{ .label }}</a></p>
+      {{ end }}
+      {{ range $cv.cv_groups }}
+      <h2 class="mc-sub">{{ .heading }}</h2>
+      {{ range .items }}
+      <div class="mc-entry">
+        <div class="mc-when">{{ .when }}</div>
+        <div>
+          <h3>{{ .title }}</h3>
+          {{ with .where }}<div class="mc-where">{{ . }}</div>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+      {{ end }}
+    </section>
+
+    <section class="mc-sec" id="contact">
+      <h2>Contact</h2>
+      {{ with $contact.contact }}
+      {{ with .text }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with .links }}
+      <ul class="mc-list">
+        {{ range . }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+      </ul>
+      {{ end }}
+      {{ end }}
+    </section>
+
+  </div>
+</div>
+{{- end -}}

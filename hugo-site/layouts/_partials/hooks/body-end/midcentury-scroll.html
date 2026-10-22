@@ -1,0 +1,59 @@
+<script>
+(function () {
+  var secs = [].slice.call(document.querySelectorAll('.mc-sec'));
+  if (!secs.length || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('mc-js');
+  var links = [].slice.call(document.querySelectorAll('.page-header a[href*="#"]'));
+  var current = null;
+  var ind = null, box = null;
+
+  // line that glides from one menu item to the next
+  (function () {
+    if (links.length < 2) return;
+    box = links[0].parentElement;
+    while (box && !box.contains(links[links.length - 1])) box = box.parentElement;
+    if (!box) return;
+    if (getComputedStyle(box).position === 'static') box.style.position = 'relative';
+    ind = document.createElement('span');
+    ind.className = 'mc-ind';
+    box.appendChild(ind);
+  })();
+
+  function moveInd() {
+    if (!ind) return;
+    var act = links.filter(function (a) { return a.classList.contains('mc-navactive'); })[0];
+    if (!act) { ind.style.opacity = '0'; return; }
+    var b = box.getBoundingClientRect(), r = act.getBoundingClientRect();
+    ind.style.left = (r.left - b.left) + 'px';
+    ind.style.width = r.width + 'px';
+    ind.style.top = (r.bottom - b.top + 4) + 'px';
+    ind.style.opacity = '1';
+  }
+  window.addEventListener('resize', moveInd);
+
+  function setActive(id) {
+    if (id === current) return;
+    current = id;
+    secs.forEach(function (s) { s.classList.toggle('mc-in', s.id === id); });
+    links.forEach(function (a) {
+      var h = (a.getAttribute('href') || '').split('#')[1];
+      a.classList.toggle('mc-navactive', h === id);
+    });
+    moveInd();
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  secs.forEach(function (s) { io.observe(s); });
+
+  // the last (short) section never reaches the middle band: activate it at page end
+  window.addEventListener('scroll', function () {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      setActive(secs[secs.length - 1].id);
+    }
+  }, { passive: true });
+
+  setActive(secs[0].id);
+})();
+</script>

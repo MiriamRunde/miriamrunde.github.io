@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Miriam Runde – Entwurf A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#16241E; --surface:#1F3329; --text:#E6DABF; --muted:#9C9378;
+  --accent:#A8402E; --accent-light:#D17560; --rule:#33493D;
+  --head:'Outfit','Jost','Futura','Avenir Next',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.65 var(--body)}
+a{color:var(--accent-light);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:var(--accent-light)}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:5}
+.bar{max-width:920px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font:600 18px var(--head);letter-spacing:.02em;color:var(--text);border:0}
+nav{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+nav a{font:500 14px var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
+nav a:hover{color:var(--accent-light);border-color:transparent}
+.lang{font:500 13px var(--head);color:var(--muted);letter-spacing:.08em}
+.lang b{color:var(--text);font-weight:500}
+main{max-width:920px;margin:0 auto;padding:0 24px 80px}
+section{padding:56px 0 8px;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+h1,h2,h3{font-family:var(--head);margin:0;font-weight:600;line-height:1.15}
+h1{font-size:clamp(38px,6vw,56px);letter-spacing:-.01em}
+h2{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-light);margin-bottom:28px;font-weight:500}
+h3{font-size:19px;font-weight:500;margin-bottom:2px}
+.hero{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:center;padding:72px 0 56px}
+.photo{width:200px;height:200px;border-radius:50%;background:var(--surface);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font:500 54px var(--head);color:var(--muted)}
+.role{font:400 20px var(--head);color:var(--muted);margin:10px 0 18px}
+.role em{font-style:normal;color:var(--accent-light)}
+.links{display:flex;gap:22px;flex-wrap:wrap;font-size:15px;margin-top:20px}
+p{margin:0 0 16px;max-width:66ch}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:10px 0;border-top:1px solid var(--rule);display:flex;gap:18px}
+ul.plain li:first-child{border-top:0;padding-top:0}
+ul.plain li::before{content:"–";color:var(--accent-light)}
+.entry{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:18px 0;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:0;padding-top:0}
+.when{font:400 14px var(--head);color:var(--muted);letter-spacing:.04em;padding-top:4px}
+.where{color:var(--muted);font-size:15px;margin-bottom:6px}
+.entry p{font-size:16px;margin-bottom:0}
+.tag{font:500 12px var(--head);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-light)}
+footer{max-width:920px;margin:0 auto;padding:28px 24px 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--rule)}
+@media(max-width:680px){
+  .hero{grid-template-columns:1fr;gap:24px;padding-top:40px}
+  .photo{width:120px;height:120px;font-size:34px}
+  .entry{grid-template-columns:1fr;gap:4px}
+  nav{gap:16px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="#top">Miriam Runde</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#schreibproben">Schreibproben</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+      <span class="lang"><b>EN</b> / DE</span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="photo" aria-hidden="true">MR</div>
+    <div>
+      <h1>Miriam Runde</h1>
+      <div class="role">PhD researcher in Political Science · <em>Universität Heidelberg</em></div>
+      <p>I study how mainstream parties respond to new lines of political conflict, using computational social science methods and text as data.</p>
+      <div class="links"><a href="#cv">Curriculum Vitae (PDF)</a><a href="#contact">Contact</a></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I am a political scientist and data scientist. I hold an M.Sc. in Data Science for Public Policy and a Master of Public Policy from the Hertie School in Berlin, and a B.A. in Political Science from the University of Göttingen.</p>
+    <p>Since September 2026 I am a doctoral researcher at Heidelberg University. Before that, I led the research and data analysis for Compass-W at INES Analytics, an index for equal and fair work.</p>
+    <h2 style="margin-top:36px">Research interests</h2>
+    <ul class="plain" style="margin-bottom:40px">
+      <li>Comparative party research</li>
+      <li>Cleavage formation and the transformation of party systems</li>
+      <li>Computational social science and NLP for political text</li>
+      <li>Causal inference and spatial data analysis</li>
+      <li>Algorithmic accountability and AI interpretability in governance</li>
+    </ul>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="entry">
+      <div class="when">2025 – 2026</div>
+      <div>
+        <h3>Compass-W · Job Equivalence and Pay Equity</h3>
+        <div class="where">INES Analytics GmbH · with the German Federal Ministry BMFSFJ</div>
+        <p>Index to measure equal and fair work. Survey design, data analysis, index construction and validation, and communication of results in reports and workshops.</p>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="when">Master's thesis</div>
+      <div>
+        <h3>Cycling Volume and Accident Risk</h3>
+        <div class="where">Hertie School · M.Sc. Data Science for Public Policy</div>
+        <p>Two-stage machine-learning framework that extrapolates bike volume and predicts exposure-based accident risk from spatial and temporal data, from data collection and feature engineering to model comparison.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="schreibproben">
+    <h2>Schreibproben</h2>
+    <div class="entry">
+      <div class="when">2021<br><span class="tag">B.A. thesis</span></div>
+      <div>
+        <h3>Im Spagat zwischen Grün und Rechts</h3>
+        <div class="where">Wie reagieren deutsche Mainstreamparteien auf die Genese einer neuen politischen Konfliktlinie? · Universität Göttingen</div>
+        <p>Quantitative content analysis of the CDU/CSU and SPD manifestos 2013 and 2017 on the cosmopolitan–communitarian cleavage, based on Meguid's model of mainstream party strategies.</p>
+        <p><a href="#">PDF</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <h2>CV</h2>
+    <div class="entry">
+      <div class="when">since 09/2026</div>
+      <div><h3>Doctoral researcher, Political Science</h3><div class="where">Universität Heidelberg</div></div>
+    </div>
+    <div class="entry">
+      <div class="when">08/2025 – 08/2026</div>
+      <div><h3>Social Data Scientist</h3><div class="where">INES Analytics GmbH</div></div>
+    </div>
+    <div class="entry">
+      <div class="when">Education</div>
+      <div>
+        <h3>M.Sc. Data Science for Public Policy</h3><div class="where">Hertie School, Berlin</div>
+        <h3 style="margin-top:14px">Master of Public Policy</h3><div class="where">Hertie School, Berlin</div>
+        <h3 style="margin-top:14px">B.A. Political Science</h3><div class="where">Universität Göttingen</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>E-mail, institutional address and links follow here.</p>
+  </section>
+</main>
+<footer>© 2026 Miriam Runde</footer>
+</body>
+</html>
