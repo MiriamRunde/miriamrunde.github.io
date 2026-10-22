@@ -1,0 +1,28 @@
+# Custom font pack: narrow geometric headings, tight neutral body
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Midcentury"
+    vendor: "custom"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Barlow Semi Condensed headings, Inter Tight body"
+
+  families:
+    heading: "Barlow Semi Condensed"
+    body: "Inter Tight"
+    code: "JetBrains Mono"
+
+  weights:
+    heading: [400, 500, 600]
+    body: [400, 500]
+    code: [400]
+
+  leading:
+    heading: 1.15
+    body: 1.65
+    code: 1.5
+
+  tracking:
+    heading: "0.005em"
+    body: "0"

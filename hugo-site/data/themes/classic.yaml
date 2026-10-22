@@ -1,0 +1,41 @@
+# Custom theme pack: white page, dark green + dark gray + black
+hugoblox:
+  meta:
+    format: "hugoblox-theme@1"
+    name: "Classic"
+    vendor: "custom"
+    version: "1.0.0"
+    license: "MIT"
+    description: "White, dark green, dark gray, black"
+
+  type: "dual"
+
+  light:
+    colors:
+      primary: "#1E4A38"
+      secondary: "#2F3532"
+      neutral: "#69706C"
+    surfaces:
+      background: "#FFFFFF"
+      foreground: "#2F3532"
+      header:
+        background: "#FFFFFF"
+        foreground: "#2F3532"
+      footer:
+        background: "#FFFFFF"
+        foreground: "#69706C"
+
+  dark:
+    colors:
+      primary: "#7FB59B"
+      secondary: "#C9CFCB"
+      neutral: "#9AA19D"
+    surfaces:
+      background: "#101412"
+      foreground: "#DDE2DF"
+      header:
+        background: "#101412"
+        foreground: "#DDE2DF"
+      footer:
+        background: "#101412"
+        foreground: "#9AA19D"

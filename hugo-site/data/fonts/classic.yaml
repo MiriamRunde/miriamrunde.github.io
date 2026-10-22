@@ -1,0 +1,28 @@
+# Custom font pack: serif headings, thin sans body
+hugoblox:
+  meta:
+    format: "hugoblox-font@1"
+    name: "Classic"
+    vendor: "custom"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Instrument Serif headings, Inter light body"
+
+  families:
+    heading: "Instrument Serif"
+    body: "Inter"
+    code: "JetBrains Mono"
+
+  weights:
+    heading: [400]
+    body: [300, 400, 500]
+    code: [400]
+
+  leading:
+    heading: 1.0
+    body: 1.7
+    code: 1.5
+
+  tracking:
+    heading: "-0.02em"
+    body: "0"

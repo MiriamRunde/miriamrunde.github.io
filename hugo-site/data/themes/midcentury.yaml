@@ -1,0 +1,41 @@
+# Custom theme pack: dark green / beige / dark red
+hugoblox:
+  meta:
+    format: "hugoblox-theme@1"
+    name: "Midcentury"
+    vendor: "custom"
+    version: "1.0.0"
+    license: "MIT"
+    description: "Dark forest green, warm beige, muted dark red"
+
+  type: "dual"
+
+  light:
+    colors:
+      primary: "#A8402E"
+      secondary: "#7A2D20"
+      neutral: "#5C5640"
+    surfaces:
+      background: "#E6DABF"
+      foreground: "#16241E"
+      header:
+        background: "#E6DABF"
+        foreground: "#16241E"
+      footer:
+        background: "#E6DABF"
+        foreground: "#5C5640"
+
+  dark:
+    colors:
+      primary: "#D17560"
+      secondary: "#A8402E"
+      neutral: "#101C16"
+    surfaces:
+      background: "#0A130F"
+      foreground: "#E6DABF"
+      header:
+        background: "#0A130F"
+        foreground: "#E6DABF"
+      footer:
+        background: "#0A130F"
+        foreground: "#9C9378"

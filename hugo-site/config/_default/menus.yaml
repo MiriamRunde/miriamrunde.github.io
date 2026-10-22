@@ -1,0 +1,14 @@
+# Main navigation (one-page site: anchors)
+main:
+  - name: Research
+    url: /#research
+    weight: 10
+  - name: About
+    url: /#about
+    weight: 20
+  - name: CV
+    url: /#cv
+    weight: 30
+  - name: Contact
+    url: /#contact
+    weight: 40
